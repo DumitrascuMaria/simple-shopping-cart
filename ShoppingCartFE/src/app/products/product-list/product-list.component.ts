@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../core/model/product';
-import { ProductService } from '../service/product.service';
+import { Product } from '../../core/model/product';
+import { ProductService } from '../../core/service/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +10,7 @@ import { ProductService } from '../service/product.service';
 export class ProductListComponent implements OnInit {
 
   products: Product[] | undefined;
-
+  public selectedProducts:number[]=[];
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -19,5 +19,9 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  selected(event:number):void{
+    console.log('event',event);
+    this.selectedProducts.push(event);
+  }
   
 }

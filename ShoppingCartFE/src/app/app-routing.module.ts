@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ErrorPageComponent } from './core/error-page/error-page.component';
 
 const routes: Routes = [
-  {path:'', pathMatch:'full', redirectTo:'products'}, //full e ca sa nu apara nimic dupa /
-  {path:'products', component:ProductListComponent}
+  { path: '', pathMatch: 'full', redirectTo: 'products' },
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
+  { path: '**', component: ErrorPageComponent }
 ];
 
 @NgModule({
