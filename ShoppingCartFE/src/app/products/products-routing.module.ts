@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from '../cart/cart.component';
+
 import { ProductGuard } from '../core/service/product.guard';
 import { ProductResolver } from '../core/service/product.resolver';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -14,7 +14,7 @@ const routes: Routes = [
     canActivate: [ProductGuard]
   },
   { path: 'cart', 
-    component: CartComponent,
+    
     resolve: { product: ProductResolver },
     canActivate: [ProductGuard]
   }
